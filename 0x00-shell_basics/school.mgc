@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -l[SCHOOL]*
+ls -l [SCHOOL]*

@@ -1,0 +1,22 @@
+total 88
+drwxr-xr-x 2 root root  4096 Feb 13 13:10 .
+drwxr-xr-x 6 root root   121 Feb 13 04:01 ..
+-rwxr-xr-x 1 root root    33 Feb 13 04:39 0-hello_world
+-rwxr-xr-x 1 root root    28 Feb 13 04:43 1-confused_smiley
+-rwxr-xr-x 1 root root    28 Feb 13 04:53 2-hellofile
+-rwxr-xr-x 1 root root    39 Feb 13 05:14 3-twofiles
+-rwxr-xr-x 1 root root    35 Feb 13 05:20 4-lastlines
+-rwxr-xr-x 1 root root    35 Feb 13 05:22 5-firstlines
+-rwxr-xr-x 1 root root    40 Feb 13 05:48 6-third_line
+-rwxr-xr-x 1 root root   100 Feb 13 12:58 7-file
+-rw-r--r-- 1 root root 12288 Feb 13 12:42 .7-file.swp
+-rwxr-xr-x 1 root root    34 Feb 13 13:10 8-cwd_state
+-rw-r--r-- 1 root root    12 Feb 13 12:58 \*\\'"Best School"\'\\*$\?\*\*\*\*\*:)
+-rw-r--r-- 1 root root  4539 Feb 13 05:00 cat
+-rwxr-xr-x 1 root root    89 Feb 13 04:28 github_script
+-rw-r--r-- 1 root root   812 Feb 13 05:38 iacta
+-rw-r--r-- 1 root root     0 Feb 13 13:10 la_cwd_content
+-rw-r--r-- 1 root root  1513 Feb 13 05:05 myfile
+-rw-r--r-- 1 root root    19 Feb 13 04:37 README.md
+-rw-r--r-- 1 root root   175 Feb 13 05:07 result
+-rw-r--r-- 1 root root  1513 Feb 13 05:10 result1

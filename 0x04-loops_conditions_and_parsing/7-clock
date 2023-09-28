@@ -13,4 +13,3 @@ do
 	done
 	(( hr += 1 ))
 done
-echo "Hour: $hr"

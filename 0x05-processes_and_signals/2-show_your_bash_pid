@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Shows Bash pid
+# shellcheck disable=SC2009
+
+my_pid=$(ps aux | grep -E "[b]ash")
+echo "$my_pid"

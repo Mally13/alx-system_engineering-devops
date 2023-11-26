@@ -9,5 +9,5 @@ file { '/home/mally13/.ssh/config':
                   PasswordAuthentication no\n",
   owner   => mally13,
   group   => mally13,
-  mode    => '0600',
+  mode    => '0664',
 }

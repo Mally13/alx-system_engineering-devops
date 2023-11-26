@@ -1,6 +1,6 @@
 # SSH client configuration
 Host 239778-web-01
 	HostName 52.87.235.104
-	User ubuntu
+	User mally13
 	IdentityFile ~/.ssh/school
 	PasswordAuthentication no

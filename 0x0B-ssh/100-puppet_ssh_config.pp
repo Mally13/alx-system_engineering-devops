@@ -1,3 +1,5 @@
+# Create Client configuration file (w/ Puppet)
+
 file { '/home/mally13/.ssh/config':
   ensure  => present,
   content => "Host 239778-web-01\n\

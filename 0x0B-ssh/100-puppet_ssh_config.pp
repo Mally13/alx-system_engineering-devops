@@ -1,6 +1,6 @@
 # Create Client configuration file (w/ Puppet)
 
-file { '/home/mally13/.ssh/config':
+file { '/etc/ssh/ssh_config':
   ensure  => present,
   content => "Host 239778-web-01\n\
                   HostName 52.87.235.104\n\
@@ -11,3 +11,4 @@ file { '/home/mally13/.ssh/config':
   group   => mally13,
   mode    => '0664',
 }
+

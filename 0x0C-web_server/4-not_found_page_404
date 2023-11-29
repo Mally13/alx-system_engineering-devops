@@ -4,10 +4,10 @@ sudo apt-get -y update
 sudo apt-get install -y nginx
 sudo service nginx start
 
-mkdir /etc/nginx/html
-touch /etc/nginx/html/404.html
-echo "Ceci n'est pas une page" > /etc/nginx/html/404.html
-printf %s "server {
+sudo mkdir /etc/nginx/html
+sudo touch /etc/nginx/html/404.html
+sudo echo "Ceci n'est pas une page" > /etc/nginx/html/404.html
+sudo printf %s "server {
     listen 80;
     listen [::]:80 default_server;
     root   /etc/nginx/html;

@@ -3,9 +3,16 @@
 sudo apt-get -y update
 sudo apt-get install -y nginx
 sudo service nginx start
+directory = "/etc/nginx/html"
+file = "/etc/nginx/html/404.html"
 
-sudo mkdir /etc/nginx/html
-sudo touch /etc/nginx/html/404.html
+if [ ! -d "$directory" ]; then
+    sudo mkdir -p "$directory"
+fi
+if [ ! -e "$file" ]; then
+    touch "$file"
+fi
+
 sudo echo "Ceci n'est pas une page" > /etc/nginx/html/404.html
 sudo printf %s "server {
     listen 80;

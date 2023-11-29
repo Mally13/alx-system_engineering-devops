@@ -10,11 +10,11 @@ if [ ! -d "$directory" ]; then
     sudo mkdir -p "$directory"
 fi
 if [ ! -e "$file" ]; then
-    touch "$file"
+    sudo touch "$file"
 fi
 
-sudo echo "Ceci n'est pas une page" > /etc/nginx/html/404.html
-sudo printf %s "server {
+sudo sh -c 'echo "Ceci n'\''est pas une page" > /etc/nginx/html/404.html'
+sudo sh -c 'echo "server {
     listen 80;
     listen [::]:80 default_server;
     root   /etc/nginx/html;
@@ -29,6 +29,6 @@ sudo printf %s "server {
       root /etc/nginx/html;
       internal;
     }
-}" > /etc/nginx/sites-available/default
+}" > /etc/nginx/sites-available/default'
 
 sudo service nginx restart

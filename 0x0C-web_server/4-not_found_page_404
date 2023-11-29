@@ -4,7 +4,8 @@ sudo apt-get -y update
 sudo apt-get install -y nginx
 sudo service nginx start
 
-mkditouch /etc/nginx/html/404.html
+mkdir /etc/nginx/html
+touch /etc/nginx/html/404.html
 echo "Ceci n'est pas une page" > /etc/nginx/html/404.html /etc/nginx/html
 
 printf %s "server {

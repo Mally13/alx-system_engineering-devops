@@ -4,11 +4,19 @@ sudo apt-get -y update
 sudo apt-get install -y nginx
 sudo service nginx start
 
-redirection_url="https://www.youtube.com/watch?v=QH2-TGUlwu4"
+mkdir /etc/nginx/html
+touch /etc/nginx/html/404.html
+echo "Ceci n'est pas une page" > /etc/nginx/html/404.html /etc/nginx/html
 
-# Check if the location block already exists in the Nginx configuration
-if ! grep -q "location /redirect_me" /etc/nginx/sites-available/default; then
-	# Use sed to insert the location block into the default Nginx configuration
-	sudo sed -i "/location \/ {/a \    location \/redirect_me {\n        return 301 $redirection_url;\n    }\n" /etc/nginx/sites-available/default
-fi
+printf %s "server {
+    listen 80;
+    listen [::]:80 default_server;
+    root   /etc/nginx/html;
+    index  index.html index.htm;
+
+    location /redirect_me {
+        return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
+    }
+}" > /etc/nginx/sites-available/default
+
 sudo service nginx restart

@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Redirection
+sudo apt-get -y update
+sudo apt-get install -y nginx
+sudo service nginx start
+
+redirection_url="https://www.youtube.com/watch?v=QH2-TGUlwu4"
+
+sudo sed -i "/location \/ {/a \	location \/redirect_me {\n        return 301 $redirection_url;\n    }\n" /etc/nginx/sites-available/default
+
+sudo service nginx restart

@@ -14,6 +14,7 @@ sudo apt-get -y update
 sudo apt-get install -y nginx
 sudo service nginx start
 
+echo "$HOSTNAME"
 if [ ! -d "$directory" ]; then
 	sudo mkdir /etc/nginx/html
 fi
@@ -31,7 +32,7 @@ sudo sh -c 'echo "server {
 	listen [::]:80 default_server;
 	root   /etc/nginx/html;
 	index  index.html index.htm;
-	add_header X-Served-By $HOSTNAME;
+	add_header X-Served-By '$HOSTNAME' always;
 
 	location /redirect_me {
 		return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;

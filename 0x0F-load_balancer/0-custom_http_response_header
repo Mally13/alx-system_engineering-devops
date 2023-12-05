@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+# Installs Nginx with the following configurations:
+#+	Listens on port 80.
+#+	Returns a page containing "Holberton School" when queried
+#+	 at the root with a curl GET request.
+# Configures /redirect_me as a "301 Moved Permanently".
+# Includes a custom 404 page containing "Ceci n'est pas une page".
+
+directory="/etc/nginx/html"
+file_404="/etc/nginx/html/404.html"
+file_index="/etc/nginx/html/index.html"
+
+sudo apt-get -y update
+sudo apt-get install -y nginx
+sudo service nginx start
+
+if [ ! -d "$directory" ]; then
+	sudo mkdir /etc/nginx/html
+fi
+if [ ! -e "$file_index" ]; then
+	sudo touch "$file_index"
+fi
+sudo sh -c 'echo "Hello World!" > /etc/nginx/html/index.html'
+if [ ! -e "$file_404" ]; then
+	sudo touch /etc/nginx/html/404.html
+fi
+sudo sh -c 'echo "Ceci n'\''est pas une page" > /etc/nginx/html/404.html'
+
+sudo sh -c 'echo "server {
+	listen 80;
+	listen [::]:80 default_server;
+	root   /etc/nginx/html;
+	index  index.html index.htm;
+	add_header X-Served-By $HOSTNAME;
+
+	location /redirect_me {
+		return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
+	}
+	error_page 404 /404.html;
+	location /404 {
+	  root /etc/nginx/html;
+	  internal;
+	}
+}" > /etc/nginx/sites-available/default'
+
+sudo service nginx restart

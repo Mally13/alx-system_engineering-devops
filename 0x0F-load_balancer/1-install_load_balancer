@@ -1,5 +1,18 @@
 #!/usr/bin/env bash
 # Installs HAProxy
+
 sudo apt-get install --no-install-recommends -y software-properties-common
 sudo add-apt-repository -y ppa:vbernat/haproxy-2.4
 sudo apt-get -y install haproxy=2.4.\*
+sudo systemctl start haproxy
+
+sudo sh -c 'echo "
+backend webservers
+	server server1 192.168.1.10:80 check
+	server server2 192.168.1.11:80 check
+frontend http-in
+	bind *:80
+	mode http
+	balance roundrobin
+	default_backend webservers" > /etc/haproxy/haproxy.cfg'
+sudo systemctl restart haproxy

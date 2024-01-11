@@ -14,8 +14,8 @@ frontend http-in
 
 backend webservers
 	balance roundrobin
-	server 239778-web-01 239778-web-01:80 check
-	server 239778-web-02 239778-web-02:80 check
+	server web-01 54.85.132.25:80 check
+	server web-02 34.201.165.191:80 check
 EOF
 
 sudo service haproxy restart

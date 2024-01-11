@@ -3,7 +3,7 @@
 # a custom header
 # Add HAProxy PPA
 sudo apt-get -y install software-properties-common
-sudo add-apt-repository -y ppa:vbernat/haproxy-2.8
+sudo add-apt-repository -y ppa:vbernat/haproxy-2.9
 sudo apt-get -y update
 
 # Install HAProxy

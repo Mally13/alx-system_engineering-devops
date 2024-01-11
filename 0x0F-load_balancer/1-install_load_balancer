@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 # Add HAProxy PPA
 sudo apt-get -y install software-properties-common
 sudo add-apt-repository -y ppa:vbernat/haproxy-2.9

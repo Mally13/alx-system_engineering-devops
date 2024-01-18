@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# Checks for Domain and subdomains
+
+domain=$1
+subdomainent=$2
+
+if [[ -z "$domain" ]]; then
+	echo "Usage: $0 <domain_name> <subdomain_name(optional)>"
+	exit 1
+fi
+
+if [[ -z "$subdomainent" ]]; then
+	for subdomain in www lb-01 web-01 web-02
+	do
+		result=$(dig +short $subdomain.$domain A)
+		if [[ $result != "NXDOMAIN" ]]; then
+			echo "The subdomain $subdomain is a A record and points to $result"
+		fi
+	done
+else
+	result=$(dig +short $subdomainent.$domain A)
+	if [[ $result != "NXDOMAIN" ]]; then
+		echo "The subdomain $subdomain is a A record and points to $result"
+	fi
+fi

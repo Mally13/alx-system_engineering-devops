@@ -20,6 +20,6 @@ if [[ -z "$subdomainent" ]]; then
 else
 	result=$(dig +short $subdomainent.$domain A)
 	if [[ $result != "NXDOMAIN" ]]; then
-		echo "The subdomain $subdomain is a A record and points to $result"
+		echo "The subdomain $subdomainent is a A record and points to $result"
 	fi
 fi

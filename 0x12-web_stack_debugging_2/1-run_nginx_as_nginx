@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# Configures a contaner to run Nginx as Nginx
+
+if ! command -v sudo &> /dev/null; then
+	apk --no-cache add sudo
+fi
+
+if ! id -u nginx &> /dev/null; then
+	adduser -D -H -s /sbin/nologin nginx
+fi
+
+# Modify nginx configuration to run as the 'nginx' user
+sed -i 's/user\s*nginx;/user nginx;/g' /etc/nginx/nginx.conf
+
+# Update the permissions of the necessary directories
+chown -R nginx:nginx /var/lib/nginx /var/log/nginx
+
+# Start nginx and listen on all active IPs on port 8080
+nginx -g "daemon off;" -c /etc/nginx/nginx.conf

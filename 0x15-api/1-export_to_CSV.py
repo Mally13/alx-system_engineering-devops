@@ -34,14 +34,14 @@ if __name__ == "__main__":
             exit(1)
 
         # Extracting relevant information
-        user_id = str(user_data.get('id'))
+        user_id = user_data.get('id')
         user_name = user_data.get('username')
 
         csv_filename = "{}.csv".format(user_id)
 
         # Writing data to CSV file
         with open(csv_filename, 'w', newline='') as csv_file:
-            csv_writer = csv.writer(csv_file)
+            csv_writer = csv.writer(csv_file, quoting=csv.QUOTE_ALL)
             # Writing rows
             for task in todo_data:
                 task_completed_status = "True" if task.get(
@@ -49,10 +49,10 @@ if __name__ == "__main__":
                 task_title = task.get('title')
                 csv_writer.writerow(
                     [
-                        user_id,
-                        user_name,
-                        task_completed_status,
-                        task_title])
+                        f'{user_id}',
+                        f'{user_name}',
+                        f'{task_completed_status}',
+                        f'{task_title}'])
 
         print("CSV file '{}' has been created successfully.".format(
             csv_filename

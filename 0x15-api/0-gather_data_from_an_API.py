@@ -26,7 +26,10 @@ if __name__ == "__main__":
 
         if not user_data or not todo_data:
             print(
-                "User or TODO data not found for employee ID: {}".format(employee_id))
+                "User or TODO data not found for employee ID: {}".format(
+                    employee_id
+                )
+            )
             exit(1)
 
         # Extracting relevant information
@@ -37,7 +40,7 @@ if __name__ == "__main__":
             task.get('title') for task in todo_data if task.get('completed')]
 
         # Displaying information
-        print("Employee {} is done with tasks ({}/{}):".format(employee_name,
+        print("Employee {} is done with tasks({}/{}):".format(employee_name,
               completed_tasks, total_tasks))
         for title in completed_task_titles:
             print("\t {}".format(title))

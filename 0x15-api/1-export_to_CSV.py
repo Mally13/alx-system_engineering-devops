@@ -34,7 +34,7 @@ if __name__ == "__main__":
             exit(1)
 
         # Extracting relevant information
-        user_id = user_data.get('id')
+        user_id = str(user_data.get('id'))
         user_name = user_data.get('username')
 
         csv_filename = "{}.csv".format(user_id)

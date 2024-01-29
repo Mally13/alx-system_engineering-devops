@@ -42,11 +42,6 @@ if __name__ == "__main__":
         # Writing data to CSV file
         with open(csv_filename, 'w', newline='') as csv_file:
             csv_writer = csv.writer(csv_file)
-
-            # Writing header
-            csv_writer.writerow(
-                ["USER_ID", "USERNAME", "TASK_COMPLETED_STATUS", "TASK_TITLE"])
-
             # Writing rows
             for task in todo_data:
                 task_completed_status = "True" if task.get(

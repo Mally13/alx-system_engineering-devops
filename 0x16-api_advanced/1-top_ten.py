@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Returns the number of subscribers for a given subreddit"""
+"""Returns the top 10 hot subreddits"""
 import requests
 
 

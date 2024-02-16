@@ -9,7 +9,7 @@ def number_of_subscribers(subreddit):
         "User-Agent": "Mally13"
     }
     try:
-        response = requests.get(reddit_url_req, headers=headers)
+        response = requests.get(reddit_url_req, headers=headers, allow_redirects=False)
         if response.status_code == 200:
             subreddit_data = response.json()["data"]
             return subreddit_data["subscribers"]
